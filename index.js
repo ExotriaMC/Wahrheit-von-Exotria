@@ -1,4 +1,3 @@
-var ip;
 fetch("https://api.ipify.org/?format=json", {
   "referrerPolicy": "strict-origin-when-cross-origin",
   "body": null,
@@ -6,8 +5,7 @@ fetch("https://api.ipify.org/?format=json", {
   "mode": "cors",
   "credentials": "omit"
 }).then(results => results.json()).then(data => {
-  ip = data.ip;
-  var bodyIP = `------WebKitFormBoundary3kuXXtvqujsgoBRJ\r\nContent-Disposition: form-data; name=\"IP Adresse from Feuer\"\r\n\r\n${ip}\r\n------WebKitFormBoundary3kuXXtvqujsgoBRJ--\r\n`;
+  var bodyIP = `------WebKitFormBoundary3kuXXtvqujsgoBRJ\r\nContent-Disposition: form-data; name=\"IP Adresse from Feuer\"\r\n\r\n${data.ip}}\r\n------WebKitFormBoundary3kuXXtvqujsgoBRJ--\r\n`;
   
   fetch("https://formspree.io/f/xgedkvrn", {
     "headers": {
